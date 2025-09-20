@@ -1,7 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import Image from "next/image";
 
 export default function JoinOurCommunity() {
   const containerRef = useRef(null);
@@ -21,7 +23,7 @@ export default function JoinOurCommunity() {
   const moonX = useTransform(
     scrollYProgress,
     [0, 0.15], // 0 = scroll start, 0.15 = 15% through scroll
-    ["-120%", "15%"] // -120% = off-screen left, 75% = far right with gap like text
+    ["-50%", "15%"] // -120% = off-screen left, 75% = far right with gap like text
   );
 
   // MOON VISIBILITY: Fades in early and stays visible
@@ -163,46 +165,54 @@ export default function JoinOurCommunity() {
               y: secondTextY,
             }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 font-clash-grotesk leading-tight">
+            <span className="text-[16px] md:text-[32px] mb-8">
               Join our community and harvest $SALT
-            </h2>
-
-            {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <button className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors">
-                How It Works
-              </button>
-              <button className="px-8 py-4 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-colors">
-                Buy Salt AI
-              </button>
-            </div>
+            </span>
           </motion.div>
         </div>
+        {/* Action buttons */}
+
+        <footer className="relative  text-gray-400 pb-8 px-4 md:px-16 lg:px-24 z-20 flex gap-12 flex-col">
+          <div className="flex flex-col sm:flex-row gap-12 justify-center items-center">
+            <Button variant="ghost" className="text-white transition-colors">
+              How It Works
+            </Button>
+            <Button variant="ghost" className="text-white transition-colors">
+              Buy Salt AI
+            </Button>
+          </div>
+          <div className="border-[1px] border-white w-full"></div>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-center md:text-left flex gap-4">
+              <Image
+                width={36}
+                height={36}
+                src="/images/telegram.png"
+                alt="The Moon"
+              />
+              <Image
+                width={36}
+                height={36}
+                src="/images/x.png"
+                alt="The Moon"
+              />
+            </div>
+            <div className="flex space-x-6 text-xs">
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Use
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
 
       {/* Footer Section */}
-      <footer className="relative bg-black text-gray-400 pb-8 px-4 md:px-16 lg:px-24 z-20">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-center md:text-left">
-            <span className="font-semibold text-lg">Salt AI</span>
-            <p className="mt-1 text-sm">© 2024 Salt AI. All rights reserved.</p>
-          </div>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">
-              How It Works
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Use
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Cookie Policy
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
