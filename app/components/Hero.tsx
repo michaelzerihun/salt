@@ -1,8 +1,10 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
+  const [statsVisible, setStatsVisible] = useState(false);
+
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -14,7 +16,15 @@ const Hero = () => {
 
   // Transform for stats appearing from bottom (opacity appears earlier)
   const statsY = useTransform(scrollYProgress, [0.1, 0.4], [50, 0]);
-  const statsOpacity = useTransform(scrollYProgress, [0.02, 0.25], [0, 1]);
+  const statsOpacity = useTransform(scrollYProgress, [0.5, 0.25], [0, 1]);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      setStatsVisible(latest >= 0.15); // Adjust threshold as needed
+    });
+
+    return () => unsubscribe();
+  }, [scrollYProgress]);
   return (
     <div className="bg-black text-white font-sans">
       {/* Navigation Header - Sticky throughout entire page */}
@@ -33,16 +43,24 @@ const Hero = () => {
       </header>
 
       {/* Hero Section Container */}
-      <div
-        className="min-h-[120vh] relative space-y-[152px]"
-        ref={containerRef}
-      >
+      <div className="min-h-[120vh] relative space-y-[70px]" ref={containerRef}>
         {/* Hero Content */}
         <motion.div
           className="sticky top-0 flex flex-col justify-center items-center min-h-screen px-4 md:px-16 lg:px-24 pt-20"
           style={{ y: heroY }}
         >
-          <div className="relative z-10 flex flex-col justify-center items-start min-h-screen px-4 md:px-16 lg:px-24">
+          <motion.div
+            className="relative z-10 flex flex-col items-start min-h-screen px-4 md:px-16 lg:px-24"
+            animate={{
+              justifyContent: statsVisible ? "center" : "flex-start",
+            }}
+            transition={{
+              duration: 0.6,
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+          >
             <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold font-['ClashGrotesk'] leading-tight space-x-4">
               <span className="bg-gradient-to-r from-[#B53EA4] to-[#FC6F32] bg-clip-text text-transparent">
                 A new economic primitive
@@ -63,7 +81,7 @@ const Hero = () => {
                 Try Now
               </button>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Stats Section - Appears as user scrolls */}
