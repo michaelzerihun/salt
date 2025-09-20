@@ -129,7 +129,7 @@ export default function HomePage() {
         >
           <div className="pr-8 pl-16 text-start">
             <div className="max-w-[2000px]">
-              <h1 className="text-5xl md:text-7xl lg:text-[128px] font-black text-balance bg-gradient-to-r from-pink-400 via-orange-500 to-red-500 bg-clip-text text-transparent gradient-shift leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold font-['ClashGrotesk'] leading-tight bg-gradient-to-r from-pink-400 via-orange-500 to-red-500 space-x-4 bg-clip-text text-transparent gradient-shift leading-tight">
                 A new economic primitive for funding decentralized AI
               </h1>
 
