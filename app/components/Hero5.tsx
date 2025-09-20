@@ -12,6 +12,7 @@ import {
 import EcosystemLogos from "./EcosystemLogos";
 import Crowdsourcing from "./Crowdsourcing";
 import LLMLeaderboard from "./LLMLeaderboard";
+import JoinOurCommunity from "./JoinOurCommunity";
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -200,127 +201,6 @@ export default function HomePage() {
       <Crowdsourcing />
 
       <LLMLeaderboard />
-
-      <section ref={communityRef} className="relative z-10 py-24 min-h-screen">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-blue-900" />
-          <div
-            className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-400/20 to-transparent"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
-              Join our community and harvest $SALT
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Join our community
-              </h3>
-
-              <p className="text-lg text-white/80 mb-6 leading-relaxed">
-                Join us on our mission to to the moon & revolutionize open
-                source AI development so that we can build a permissionless,
-                democratized, and decentralized AI.
-              </p>
-
-              <p className="text-lg text-white/80 mb-8 leading-relaxed">
-                Let the fate of AI be in our hands and not that of big tech
-                companies.
-              </p>
-
-              <div className="flex gap-4">
-                <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-white/90 transition-colors">
-                  <TelegramLogo width="24" height="24" className="text-black" />
-                </button>
-                <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-white/90 transition-colors">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-black"
-                  >
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 relative overflow-hidden">
-                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-gray-200 to-gray-500 shadow-inner">
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                                     radial-gradient(circle at 70% 20%, rgba(0,0,0,0.2) 0%, transparent 30%),
-                                     radial-gradient(circle at 20% 80%, rgba(0,0,0,0.1) 0%, transparent 40%)`,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center border-t border-white/10 pt-8">
-              <div className="flex gap-4">
-                <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-white/90 transition-colors">
-                  <TelegramLogo width="20" height="20" className="text-black" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-white/90 transition-colors">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-black"
-                  >
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="flex gap-8">
-                <a
-                  href="#"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  How It Works
-                </a>
-                <a
-                  href="#"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  Buy Salt AI
-                </a>
-              </div>
-
-              <div className="flex gap-6 text-sm text-white/40">
-                <a href="#" className="hover:text-white/60 transition-colors">
-                  Terms of Use
-                </a>
-                <a href="#" className="hover:text-white/60 transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="#" className="hover:text-white/60 transition-colors">
-                  Cookie Policy
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

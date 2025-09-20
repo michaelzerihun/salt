@@ -14,6 +14,8 @@ export default function Home() {
       <LLMLeaderboard />
       <JoinOurCommunity /> */}
       <HomePage />
+
+      <JoinOurCommunity />
     </div>
   );
 }
