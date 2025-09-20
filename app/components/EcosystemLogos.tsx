@@ -36,8 +36,8 @@ export default function EcosystemLogos() {
     { component: TelegramLogo, alt: "Logo 5", width: "102", height: "102" },
   ];
   return (
-    <div className="h-screen bg-black flex flex-col justify-center items-center text-center py-20 px-4 md:px-16 lg:px-24 gap-12">
-      <h2 className="text-3xl md:text-[64px] font-bold text-white mb-10">
+    <div className="relative z-10 h-screen text-white flex flex-col justify-center items-center text-center py-20 px-4 md:px-16 lg:px-24 gap-12">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 text-balance">
         Projects integrated into the Arrakis AI Ecosystem
       </h2>
       <motion.div

@@ -288,7 +288,7 @@ export default function LLMLeaderboard() {
     : leaderboardData.slice(8, 16);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center px-4 md:px-16 lg:px-24 py-20">
+    <div className="z-10 min-h-screen relative text-white flex flex-col justify-center px-4 md:px-16 lg:px-24 py-20">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
