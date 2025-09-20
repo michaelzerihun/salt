@@ -12,10 +12,9 @@ const Hero = () => {
   // Transform for moving hero content up to make room for stats
   const heroY = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
 
-  // Transform for stats appearing from bottom (earlier and closer)
+  // Transform for stats appearing from bottom (opacity appears earlier)
   const statsY = useTransform(scrollYProgress, [0.1, 0.4], [50, 0]);
-  const statsOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
-
+  const statsOpacity = useTransform(scrollYProgress, [0.02, 0.25], [0, 1]);
   return (
     <div className="bg-black text-white font-sans">
       {/* Navigation Header - Sticky throughout entire page */}
@@ -34,7 +33,10 @@ const Hero = () => {
       </header>
 
       {/* Hero Section Container */}
-      <div className="min-h-[120vh] relative" ref={containerRef}>
+      <div
+        className="min-h-[120vh] relative space-y-[152px]"
+        ref={containerRef}
+      >
         {/* Hero Content */}
         <motion.div
           className="sticky top-0 flex flex-col justify-center items-center min-h-screen px-4 md:px-16 lg:px-24 pt-20"
