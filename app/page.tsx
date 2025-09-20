@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
 import EcosystemLogos from "./components/EcosystemLogos";
 import Crowdsourcing from "./components/Crowdsourcing";
 import LLMLeaderboard from "./components/LLMLeaderboard";
