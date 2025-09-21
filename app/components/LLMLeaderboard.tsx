@@ -357,11 +357,9 @@ export default function LLMLeaderboard() {
           </div>
         </div>
         {/* Pagination Controls */}
-        <div className="flex justify-center md:justify-end items-center mt-6">
+        <div className="flex justify-center md:justify-end items-center mt-6 gap-8">
           {!showFirstTen && (
-            <span className="text-sm text-gray-400 mr-2">
-              View full leaderboard
-            </span>
+            <span className="text-lg text-gray-200">View full leaderboard</span>
           )}
           <button
             onClick={() => setShowFirstTen(!showFirstTen)}

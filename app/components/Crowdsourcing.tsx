@@ -12,7 +12,7 @@ export default function Crowdsourcing() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-clash-grotesk leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight font-['ClashGrotesk']">
           Crowdsourcing our collective intelligence to build the best AI
         </h2>
         <p className="text-lg md:text-xl text-gray-300 mb-8">

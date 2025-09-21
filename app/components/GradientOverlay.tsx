@@ -19,7 +19,7 @@ const gradientVariants = {
 };
 
 const positionVariants = {
-  "bottom-left": "bottom-0 left-0 translate-x-[-25%] translate-y-[25%]",
+  "bottom-left": "bottom-50 left-70 translate-x-[-25%] translate-y-[25%]",
   "top-center": "top-0 left-1/2 translate-x-[-50%] translate-y-[-25%]",
   custom: "",
 };

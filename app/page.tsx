@@ -15,7 +15,7 @@ export default function Home() {
       <JoinOurCommunity /> */}
       <HomePage />
 
-      <JoinOurCommunity />
+      {/* <JoinOurCommunity /> */}
     </div>
   );
 }

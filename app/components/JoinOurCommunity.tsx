@@ -6,11 +6,25 @@ import Image from "next/image";
 
 export default function JoinOurCommunity() {
   const [scrollY, setScrollY] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
+    // Set window height on mount
+    setWindowHeight(window.innerHeight);
+
+    // Handle scroll
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Update window height on resize
+    const handleResize = () => setWindowHeight(window.innerHeight);
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -19,7 +33,7 @@ export default function JoinOurCommunity() {
         className="fixed inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: `url('/images/space.png')`,
-          transform: `translateY(${scrollY * -0.3 + window.innerHeight * 2}px)`,
+          transform: `translateY(${scrollY * -0.3 + windowHeight * 2}px)`,
           willChange: "transform",
         }}
       />
@@ -34,7 +48,7 @@ export default function JoinOurCommunity() {
               style={{ width: "941px", height: "319px" }}
             >
               <h2
-                className="font-bold mb-8 leading-tight"
+                className="font-bold mb-8 leading-tight font-['ClashGrotesk']"
                 style={{ fontSize: "64px" }}
               >
                 Join our community
@@ -93,7 +107,7 @@ export default function JoinOurCommunity() {
           </div>
         </div>
 
-        <footer className="relative text-gray-400 pb-8 px-4 md:px-16 lg:px-24 z-20  backdrop-blur-sm">
+        <footer className="relative text-gray-400 pb-8 px-4 md:px-16 lg:px-24 z-20 backdrop-blur-sm">
           <div className="flex flex-col gap-8">
             {/* Navigation Links */}
             <div className="flex justify-center items-center gap-12">

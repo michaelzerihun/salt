@@ -37,7 +37,7 @@ export default function EcosystemLogos() {
   ];
   return (
     <div className="relative z-10 h-screen text-white flex flex-col justify-center items-center text-center py-20 px-4 md:px-16 lg:px-24 gap-12">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 text-balance">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 text-balance font-['ClashGrotesk']">
         Projects integrated into the Arrakis AI Ecosystem
       </h2>
       <motion.div
