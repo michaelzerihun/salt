@@ -97,7 +97,7 @@ export default function HomePage() {
             style={{
               backgroundImage: "url('/images/moon1.jpg')",
               backgroundPosition: "center",
-              transform: `scaleX(-1) translateY(${-scrollY * 0.5 + 400}px)`,
+              transform: `scaleX(-1) translateY(${-scrollY * 0.25 + 400}px)`,
               height: "1016px",
               width: "1016px",
               right: "-200px",
