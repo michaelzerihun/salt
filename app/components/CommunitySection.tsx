@@ -1,7 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { TelegramLogo } from "@/lib/svg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -18,9 +16,9 @@ export function CommunitySection() {
   }, []);
 
   // MOON ANIMATION CONTROLS - Adjust these values to change moon behavior
-  const moonStartX = -1900; // Moon starts 600px to the left (hiding text)
+  const moonStartX = -1900; // Moon starts 1900px to the left
   const moonEndX = 0; // Moon ends at normal position (0px)
-  const animationStartScroll = 3200; // Animation starts at 3000px scroll
+  const animationStartScroll = 3200; // Animation starts at 3200px scroll
   const animationDuration = 1500; // Animation happens over 1500px of scroll
 
   // Calculate moon position based on scroll
@@ -30,14 +28,19 @@ export function CommunitySection() {
   );
   const moonX = moonStartX + (moonEndX - moonStartX) * scrollProgress;
 
+  // Smooth text opacity transition (starts fading in at scrollProgress 0.8)
+  const textOpacity = Math.max(0, (scrollProgress - 0.8) / 0.2);
+
   return (
     <section className="min-h-screen flex items-center justify-center relative z-10 px-6">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
+        <div
+          className="space-y-8 transition-opacity duration-700 ease-in-out"
+          style={{ opacity: textOpacity, willChange: "opacity" }}
+        >
           <h2 className="text-5xl lg:text-6xl text-white font-['ClashGrotesk']">
             Join our community
           </h2>
-
           <div className="space-y-6 text-lg text-white">
             <p>
               Join us on our mission to to the moon & revolutionize open source
@@ -49,7 +52,6 @@ export function CommunitySection() {
               companies.
             </p>
           </div>
-
           <div className="flex gap-4">
             <Image
               src="/images/telegram.png"
@@ -67,12 +69,11 @@ export function CommunitySection() {
             />
           </div>
         </div>
-
         <div className="flex justify-center lg:justify-end">
           <img
             src="/images/moon.png"
             alt="Moon"
-            className="w-[484px] h-[484px] object-contain transition-transform duration-100 ease-out"
+            className="w-[484px] h-[484px] object-contain transition-transform duration-200 ease-out"
             style={{
               transform: `translateX(${moonX}px)`,
               willChange: "transform",
