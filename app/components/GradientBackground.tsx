@@ -7,6 +7,7 @@ interface GradientBackgroundProps {
   className?: string;
   showOrangeRed?: boolean;
   showBlueTeal?: boolean;
+  sticky?: boolean;
   customOverlays?: Array<{
     variant: "orange-red" | "blue-teal" | "custom";
     position: "bottom-left" | "top-center" | "custom";
@@ -15,6 +16,7 @@ interface GradientBackgroundProps {
     size?: "sm" | "md" | "lg" | "xl";
     customGradient?: string;
     customPosition?: string;
+    sticky?: boolean;
   }>;
 }
 
@@ -23,10 +25,11 @@ export function GradientBackground({
   className,
   showOrangeRed = true,
   showBlueTeal = true,
+  sticky = false,
   customOverlays = [],
 }: GradientBackgroundProps) {
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div className={cn("relative", className)}>
       {/* Default gradients matching your image */}
       {showOrangeRed && (
         <GradientOverlay
@@ -35,6 +38,7 @@ export function GradientBackground({
           blur={200}
           opacity={0.4}
           size="xl"
+          sticky={sticky}
         />
       )}
 
@@ -45,6 +49,7 @@ export function GradientBackground({
           blur={180}
           opacity={0.3}
           size="lg"
+          sticky={sticky}
         />
       )}
 

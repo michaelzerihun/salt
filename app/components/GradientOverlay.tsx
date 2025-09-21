@@ -9,6 +9,7 @@ interface GradientOverlayProps {
   className?: string;
   customGradient?: string;
   customPosition?: string;
+  sticky?: boolean;
 }
 
 const gradientVariants = {
@@ -39,6 +40,7 @@ export function GradientOverlay({
   className,
   customGradient,
   customPosition,
+  sticky = false,
 }: GradientOverlayProps) {
   const gradientClass =
     variant === "custom" ? customGradient : gradientVariants[variant];
@@ -48,7 +50,8 @@ export function GradientOverlay({
   return (
     <div
       className={cn(
-        "absolute pointer-events-none rounded-full bg-gradient-to-br",
+        sticky ? "fixed" : "absolute",
+        "pointer-events-none rounded-full bg-gradient-to-br z-0",
         gradientClass,
         positionClass,
         sizeVariants[size],
