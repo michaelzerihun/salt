@@ -18,6 +18,7 @@ import { ParallaxSpace } from "./ParallaxSpace";
 import { CommunitySection } from "./CommunitySection";
 import { HarvestSection } from "./HarvestSection";
 import { SharedParallaxBackground } from "./SharedParallaxBackground";
+import GradientButton from "./GradientButton";
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -54,7 +55,7 @@ export default function HomePage() {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
 
-      const threshold = 200; // Show stats after scrolling 200px
+      const threshold = 50; // Show stats after scrolling 50px
       setStatsVisible(currentScrollY > threshold);
 
       const statsSection = statsRef.current;
@@ -77,7 +78,7 @@ export default function HomePage() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (logosRef.current) {
@@ -112,18 +113,8 @@ export default function HomePage() {
             headerVisible ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
-          <a
-            href="#"
-            className="text-white/80 hover:text-white transition-colors text-[18px]"
-          >
-            How It Works
-          </a>
-          <Button
-            variant="outline"
-            className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors bg-transparent text-[18px] rounded-full px-5 py-3"
-          >
-            Buy Salt AI
-          </Button>
+          <Button variant={"ghost"}>How It Works</Button>
+          <Button variant={"outline"}>Buy Salt AI</Button>
         </nav>
         <GradientBackground sticky>
           <section ref={heroRef} className="relative z-10 min-h-screen">
@@ -133,9 +124,9 @@ export default function HomePage() {
                 transform: statsVisible ? "translateY(-80px)" : "translateY(0)",
               }}
             >
-              <div className="pr-8 pl-16 text-start">
-                <div className="max-w-[2000px]">
-                  <h1 className="text-4xl md:text-6xl lg:text-9xl font-bold font-['ClashGrotesk'] leading-tight space-x-4">
+              <div className="pr-8 pl-16 text-start ">
+                <div className="max-w-[1700px]">
+                  <h1 className="text-4xl md:text-6xl lg:text-9xl font-['ClashGrotesk'] font-[500] leading-tight space-x-4">
                     <span className="bg-gradient-to-r from-[#B53EA4] to-[#FC6F32] bg-clip-text text-transparent">
                       A new economic primitive
                     </span>
@@ -151,17 +142,14 @@ export default function HomePage() {
 
                   <div className="flex flex-col sm:flex-row gap-6 justify-start">
                     <Button
-                      size="lg"
-                      className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors px-8 py-4 text-lg font-semibold"
+                      size={"lg"}
+                      variant={"outline"}
+                      className="rounded-full"
                     >
                       Buy Salt AI
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="lg"
-                      className="text-white hover:text-orange-500 transition-colors px-8 py-4 text-lg font-semibold"
-                    >
-                      Try Now
+                    <Button size={"lg"} variant={"ghost"}>
+                      How It Works
                     </Button>
                   </div>
                 </div>
@@ -170,7 +158,7 @@ export default function HomePage() {
 
             <div
               ref={statsRef}
-              className={`absolute left-0 right-0 z-20 flex justify-center w-full ${
+              className={`absolute left-0 right-0 bottom-20 z-20 flex justify-center w-full  ${
                 statsVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -180,14 +168,13 @@ export default function HomePage() {
                 top: "auto",
               }}
             >
-              <div className="flex gap-8 max-w-[1760px] justify-center items-center w-full">
+              <div className="flex gap-8 max-w-full justify-center items-center w-full ">
                 <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-sm rounded-full p-8 text-center border border-white/10 h-[190px] w-[564px] flex items-center justify-center flex-col gap-5">
                   <div className="text-4xl md:text-5xl font-black text-white mb-2">
                     1,873
                   </div>
                   <div className="text-white/70 text-lg">LLM models</div>
                 </div>
-
                 <div className="bg-gradient-to-br from-orange-900/40 to-red-900/40 backdrop-blur-sm rounded-full p-8 text-center border border-white/10 h-[190px] w-[564px] flex items-center justify-center flex-col gap-5">
                   <div className="text-4xl md:text-5xl font-black text-white mb-2">
                     $326,734
@@ -196,7 +183,6 @@ export default function HomePage() {
                     Paid to data scientists
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-sm rounded-full p-8 text-center border border-white/10 h-[190px] w-[564px] flex items-center justify-center flex-col gap-5">
                   <div className="text-4xl md:text-5xl font-black text-white mb-2">
                     6,557

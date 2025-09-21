@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
@@ -288,27 +289,28 @@ export default function LLMLeaderboard() {
     : leaderboardData.slice(8, 16);
 
   return (
-    <div className="z-10 min-h-screen relative text-white flex flex-col justify-center px-4 md:px-16 lg:px-24 py-20">
+    <div className="z-10 min-h-screen relative text-white flex flex-col justify-center gap-5 px-4 md:px-16 lg:px-24 py-20">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-          <div>
+        <div className="flex flex-col gap-4 pb-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-['ClashGrotesk'] leading-tight">
               LLM Leaderboard
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-              We evaluate LLMs on key benchmarks using the Eleuther AI, a
-              framework to test LLMs on a large number of different evaluation
-              tasks. The higher the score, the better the LLM.
-            </p>
+            <Button size={"lg"} variant={"outline"} className="rounded-full">
+              Submit your model
+            </Button>
           </div>
-          <button className="mt-4 md:mt-0 px-6 py-3 rounded-full border border-white text-white font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-            Submit your model
-          </button>
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-[1320px]">
+            We evaluate LLMs on key benchmarks using the Eleuther AI, a
+            framework to test LLMs on a large number of different evaluation
+            tasks. The higher the score, the better the LLM.
+          </p>
         </div>
 
         <div className="overflow-x-auto">
@@ -335,7 +337,7 @@ export default function LLMLeaderboard() {
                 <div
                   key={row.id}
                   className={`flex items-center h-[72px] ${
-                    row.id % 2 === 0 ? "bg-gray-800" : "bg-gray-700"
+                    row.id % 2 === 0 ? "bg-transparent" : "bg-[#C9D9FF14]"
                   }`}
                 >
                   <div className="w-16 py-3 px-4 flex justify-center items-center">
