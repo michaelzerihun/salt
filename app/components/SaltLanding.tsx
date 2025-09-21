@@ -2,53 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useRef } from "react";
-import {
-  ArweaveLogo,
-  BittensorLogo,
-  CryptoLogo,
-  SolanaLogo,
-  TelegramLogo,
-} from "@/lib/svg";
 import EcosystemLogos from "./EcosystemLogos";
 import Crowdsourcing from "./Crowdsourcing";
 import LLMLeaderboard from "./LLMLeaderboard";
-import JoinOurCommunity from "./JoinOurCommunity";
 import { GradientBackground } from "./GradientBackground";
-import { ParallaxSpace } from "./ParallaxSpace";
 import { CommunitySection } from "./CommunitySection";
 import { HarvestSection } from "./HarvestSection";
 import { SharedParallaxBackground } from "./SharedParallaxBackground";
-import GradientButton from "./GradientButton";
 
-export default function HomePage() {
+export default function SaltLanding() {
   const [scrollY, setScrollY] = useState(0);
-  const [logosVisible, setLogosVisible] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
-  const logosRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
-  const crowdsourcingRef = useRef<HTMLDivElement>(null);
-  const leaderboardRef = useRef<HTMLDivElement>(null);
-  const communityRef = useRef<HTMLDivElement>(null);
-
-  const logos = [
-    { component: SolanaLogo, alt: "Solana Logo", width: "334", height: "50" },
-    {
-      component: ArweaveLogo,
-      alt: "Arweave Logo",
-      width: "421",
-      height: "100",
-    },
-    {
-      component: BittensorLogo,
-      alt: "Bittensor Logo",
-      width: "328",
-      height: "58",
-    },
-    { component: CryptoLogo, alt: "Logo 4", width: "102", height: "102" },
-    { component: TelegramLogo, alt: "Logo 5", width: "102", height: "102" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,25 +36,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setLogosVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (logosRef.current) {
-      observer.observe(logosRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <div className="bg-black text-white relative">
@@ -97,7 +45,7 @@ export default function HomePage() {
             style={{
               backgroundImage: "url('/images/moon1.jpg')",
               backgroundPosition: "center",
-              transform: `scaleX(-1) translateY(${-scrollY * 0.25 + 400}px)`,
+              transform: `scaleX(-1) translateY(${-scrollY * 0.2 + 400}px)`,
               height: "1016px",
               width: "1016px",
               right: "-200px",
