@@ -18,7 +18,7 @@ export function CommunitySection() {
   }, []);
 
   // MOON ANIMATION CONTROLS - Adjust these values to change moon behavior
-  const moonStartX = -900; // Moon starts 600px to the left (hiding text)
+  const moonStartX = -1900; // Moon starts 600px to the left (hiding text)
   const moonEndX = 0; // Moon ends at normal position (0px)
   const animationStartScroll = 3200; // Animation starts at 3000px scroll
   const animationDuration = 1500; // Animation happens over 1500px of scroll
@@ -38,7 +38,7 @@ export function CommunitySection() {
             Join our community
           </h2>
 
-          <div className="space-y-6 text-lg text-white/80">
+          <div className="space-y-6 text-lg text-white">
             <p>
               Join us on our mission to to the moon & revolutionize open source
               AI development so that we can build a permissionless,

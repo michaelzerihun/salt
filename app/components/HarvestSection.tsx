@@ -48,7 +48,7 @@ export function HarvestSection() {
               />
             </div>
 
-            <div className="flex gap-6 text-sm text-white/60">
+            <div className="flex gap-6 text-sm text-[#8E8E8E]">
               <a href="#" className="hover:text-white/80 transition-colors">
                 Terms of Use
               </a>
